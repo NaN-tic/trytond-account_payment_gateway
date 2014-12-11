@@ -1,0 +1,277 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:account.payment.gateway.transaction:"
+msgid "Journal \"%s\" has not got a debit account"
+msgstr "El diario \"%s\" no dispone de cuenta debe."
+
+msgctxt "error:account.payment.gateway.transaction:"
+msgid "Transaction \"%s\" must be cancelled before deletion."
+msgstr "La transacción \"%s\" debe ser cancelada antes de ser eliminada."
+
+msgctxt "field:account.payment.gateway,active:"
+msgid "Active"
+msgstr "Activo"
+
+msgctxt "field:account.payment.gateway,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:account.payment.gateway,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:account.payment.gateway,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:account.payment.gateway,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:account.payment.gateway,journal:"
+msgid "Journal"
+msgstr "Diario"
+
+msgctxt "field:account.payment.gateway,method:"
+msgid "Method"
+msgstr "Método"
+
+msgctxt "field:account.payment.gateway,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:account.payment.gateway,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:account.payment.gateway,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:account.payment.gateway,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:account.payment.gateway.transaction,amount:"
+msgid "Amount"
+msgstr "Importe"
+
+msgctxt "field:account.payment.gateway.transaction,authorisation_code:"
+msgid "Authorisation Code"
+msgstr "Código autorización"
+
+msgctxt "field:account.payment.gateway.transaction,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:account.payment.gateway.transaction,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:account.payment.gateway.transaction,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:account.payment.gateway.transaction,currency:"
+msgid "Currency"
+msgstr "Moneda"
+
+msgctxt "field:account.payment.gateway.transaction,currency_digits:"
+msgid "Currency Digits"
+msgstr "Decimales de moneda"
+
+msgctxt "field:account.payment.gateway.transaction,date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:account.payment.gateway.transaction,description:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:account.payment.gateway.transaction,gateway:"
+msgid "Gateway"
+msgstr "Pasarela"
+
+msgctxt "field:account.payment.gateway.transaction,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:account.payment.gateway.transaction,method:"
+msgid "Payment Gateway Method"
+msgstr "Método pasarela de pago"
+
+msgctxt "field:account.payment.gateway.transaction,origin:"
+msgid "Origin"
+msgstr "Origen"
+
+msgctxt "field:account.payment.gateway.transaction,party:"
+msgid "Party"
+msgstr "Tercero"
+
+msgctxt "field:account.payment.gateway.transaction,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:account.payment.gateway.transaction,reference_gateway:"
+msgid "Reference Gateway"
+msgstr "Referencia pasarela pago"
+
+msgctxt "field:account.payment.gateway.transaction,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:account.payment.gateway.transaction,uuid:"
+msgid "UUID"
+msgstr "UUID"
+
+msgctxt "field:account.payment.gateway.transaction,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:account.payment.gateway.transaction,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:account.payment.type,gateway:"
+msgid "Gateway"
+msgstr "Pasarela"
+
+msgctxt "model:account.payment.gateway,name:"
+msgid "Account Payment Gateway"
+msgstr "Pasarela de pago"
+
+msgctxt "model:account.payment.gateway.transaction,name:"
+msgid "Account Payment Gateway Transaction"
+msgstr "Transacción pasarela de pago"
+
+msgctxt "model:ir.action,name:act_window_account_payment_gateway"
+msgid "Payment Gateways"
+msgstr "Pasarela de pagos"
+
+msgctxt "model:ir.action,name:act_window_account_payment_gateway_transaction"
+msgid "Payment Gateway Transactions"
+msgstr "Transacciones pasarela de pago"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_account_payment_gateway_transaction_all"
+msgid "All"
+msgstr "Todos"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_account_payment_gateway_transaction_authorized"
+msgid "Authorized"
+msgstr "Autorizado"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_account_payment_gateway_transaction_cancel"
+msgid "Cancel"
+msgstr "Cancelado"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_account_payment_gateway_transaction_done"
+msgid "Done"
+msgstr "Realizado"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_account_payment_gateway_transaction_draft"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_account_payment_gateway_transaction_failed"
+msgid "Failed"
+msgstr "Fallado"
+
+msgctxt "model:ir.sequence.type,name:sequence_type_payment_gateway"
+msgid "Payment Gateway"
+msgstr "Pasarela de pago"
+
+msgctxt "model:ir.ui.menu,name:menu_account_payment_gateway_config"
+msgid "Gateways"
+msgstr "Pasarelas"
+
+msgctxt "model:ir.ui.menu,name:menu_account_payment_gateway_configuration"
+msgid "Payment Gateway"
+msgstr "Pasarela de pago"
+
+msgctxt "model:ir.ui.menu,name:menu_account_payment_gateway_transaction"
+msgid "Transactions"
+msgstr "Transacciones"
+
+msgctxt "model:ir.ui.menu,name:menu_account_payment_gateway_transactions"
+msgid "Payment Gateway"
+msgstr "Pasarela de pago"
+
+msgctxt "model:res.group,name:group_account_payment_gateway"
+msgid "Account Payment Gateway"
+msgstr "Pasarela de pago"
+
+msgctxt "model:res.group,name:group_account_payment_gateway_admin"
+msgid "Account Payment Gateway Administration"
+msgstr "Administración pasarela de pago"
+
+msgctxt "selection:account.payment.gateway.transaction,state:"
+msgid "Authorized"
+msgstr "Autorizado"
+
+msgctxt "selection:account.payment.gateway.transaction,state:"
+msgid "Canceled"
+msgstr "Cancelada"
+
+msgctxt "selection:account.payment.gateway.transaction,state:"
+msgid "Done"
+msgstr "Realizado"
+
+msgctxt "selection:account.payment.gateway.transaction,state:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "selection:account.payment.gateway.transaction,state:"
+msgid "Failed"
+msgstr "Fallado"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Are you sure to cancel the transaction?"
+msgstr "¿Estás seguro de cancelar la transacción?"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Cancel"
+msgstr "Cancelado"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "General"
+msgstr "General"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Other Information"
+msgstr "Otras informaciones"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Transaction"
+msgstr "Transacción"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Transactions"
+msgstr "Transacciones"
+
+msgctxt "view:account.payment.gateway:"
+msgid "Configuration"
+msgstr "Configuración"
+
+msgctxt "view:account.payment.gateway:"
+msgid "Gateway"
+msgstr "Pasarela"
+
+msgctxt "view:account.payment.gateway:"
+msgid "Gateways"
+msgstr "Pasarelas"

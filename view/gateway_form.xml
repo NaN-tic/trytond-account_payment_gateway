@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- This file is part account_payment_gateway of Tryton. The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<form string="Gateway">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="active"/>
+    <field name="active"/>
+    <label name="method"/>
+    <field name="method"/>
+    <label name="journal"/>
+    <field name="journal"/>
+    <notebook colspan="4">
+        <page string="Configuration" id="configuration">
+        </page>
+    </notebook>
+</form>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- This file is part account_payment_gateway of Tryton. The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tree string="Transactions">
+    <field name="date"/>
+    <field name="uuid"/>
+    <field name="description"/>
+    <field name="origin"/>
+    <field name="gateway"/>
+    <field name="reference_gateway"/>
+    <field name="party"/>
+    <field name="amount"/>
+    <field name="state"/>
+</tree>
