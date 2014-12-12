@@ -82,6 +82,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         ('done', 'Done'),
         ('cancel', 'Canceled'),
         ], 'State', readonly=True)
+    log = fields.Text("Log", depends=['state'], states=READONLY_IF_NOT_DRAFT)
 
     @classmethod
     def __setup__(cls):

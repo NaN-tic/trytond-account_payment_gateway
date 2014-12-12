@@ -17,7 +17,7 @@ this repository contains the full copyright notices and license terms. -->
             <label name="currency"/>
             <field name="currency"/>
         </page>
-        <page string="Other Information" id="other_info" col="6">
+        <page string="Other Information" id="other_info">
             <label name="company"/>
             <field name="company"/>
             <label name="gateway"/>
@@ -26,6 +26,9 @@ this repository contains the full copyright notices and license terms. -->
             <field name="reference_gateway"/>
             <label name="authorisation_code"/>
             <field name="authorisation_code"/>
+        </page>
+        <page string="Logs" id="log">
+            <field name="log"/>
         </page>
     </notebook>
     <group col="10" colspan="4" id="buttons">
