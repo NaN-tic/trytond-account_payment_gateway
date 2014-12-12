@@ -98,6 +98,10 @@ msgctxt "field:account.payment.gateway.transaction,id:"
 msgid "ID"
 msgstr "ID"
 
+msgctxt "field:account.payment.gateway.transaction,log:"
+msgid "Log"
+msgstr "Log"
+
 msgctxt "field:account.payment.gateway.transaction,method:"
 msgid "Payment Gateway Method"
 msgstr "Método pasarela de pago"
@@ -251,6 +255,10 @@ msgstr "Borrador"
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "General"
 msgstr "General"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Logs"
+msgstr "Logs"
 
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Other Information"
