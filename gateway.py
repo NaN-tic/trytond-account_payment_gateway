@@ -77,6 +77,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     method = fields.Function(fields.Char('Payment Gateway Method'), 'get_method')
     state = fields.Selection([
         ('draft', 'Draft'),
+        ('pending', 'Pending'),
         ('failed', 'Failed'),
         ('authorized', 'Authorized'),
         ('done', 'Done'),
@@ -96,24 +97,38 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
                 })
         cls._transitions |= set((
                 ('draft', 'cancel'),
+                ('draft', 'pending'),
                 ('draft', 'failed'),
                 ('draft', 'authorized'),
                 ('draft', 'done'),
                 ('cancel', 'draft'),
                 ('failed', 'draft'),
+                ('pending', 'cancel'),
+                ('pending', 'authorized'),
+                ('pending', 'done'),
                 ('authorized', 'cancel'),
                 ('authorized', 'done'),
                 ('done', 'cancel'),
                 ))
         cls._buttons.update({
                 'cancel': {
-                    'invisible': ~Eval('state').in_(['draft', 'failed', 'done']),
+                    'invisible': ~Eval('state').in_([
+                        'draft', 'pending', 'failed', 'authorized', 'done',
+                        ]),
                     },
                 'draft': {
                     'invisible': ~Eval('state').in_(['cancel']),
                     },
+                'pending': {
+                    'invisible': ~Eval('state').in_(['draft']),
+                    },
+                'authorized': {
+                    'invisible': ~Eval('state').in_(['draft', 'pending']),
+                    },
                 'confirm': {
-                    'invisible': ~Eval('state').in_(['draft', 'authorized']),
+                    'invisible': ~Eval('state').in_([
+                        'draft', 'pending', 'authorized',
+                        ]),
                     },
                 })
 
@@ -197,6 +212,26 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     def draft(cls, transactions):
         for transaction in transactions:
             method_name = 'draft_%s' % transaction.gateway.method
+            if hasattr(transaction, method_name):
+                getattr(transaction, method_name)()
+        pass
+
+    @classmethod
+    @ModelView.button
+    @Workflow.transition('pending')
+    def pending(cls, transactions):
+        for transaction in transactions:
+            method_name = 'pending_%s' % transaction.gateway.method
+            if hasattr(transaction, method_name):
+                getattr(transaction, method_name)()
+        pass
+
+    @classmethod
+    @ModelView.button
+    @Workflow.transition('authorized')
+    def authorized(cls, transactions):
+        for transaction in transactions:
+            method_name = 'authorized_%s' % transaction.gateway.method
             if hasattr(transaction, method_name):
                 getattr(transaction, method_name)()
         pass

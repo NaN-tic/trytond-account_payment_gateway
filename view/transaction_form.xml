@@ -38,6 +38,10 @@ this repository contains the full copyright notices and license terms. -->
             confirm="Are you sure to cancel the transaction?"/>
         <button name="draft" string="Draft"
             icon="tryton-go-next"/>
+        <button name="pending" string="Pending"
+            icon="tryton-go-next"/>
+        <button name="authorized" string="Authorized"
+            icon="tryton-go-next"/>
         <button name="confirm" string="Confirm"
             icon="tryton-go-next"/>
     </group>
