@@ -236,9 +236,17 @@ msgctxt "selection:account.payment.gateway.transaction,state:"
 msgid "Failed"
 msgstr "Fallado"
 
+msgctxt "selection:account.payment.gateway.transaction,state:"
+msgid "Pending"
+msgstr "Pendiente"
+
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Are you sure to cancel the transaction?"
 msgstr "¿Estás seguro de cancelar la transacción?"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Authorized"
+msgstr "Autorizado"
 
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Cancel"
@@ -263,6 +271,10 @@ msgstr "Logs"
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Other Information"
 msgstr "Otras informaciones"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Pending"
+msgstr "Pendiente"
 
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Transaction"
