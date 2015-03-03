@@ -3,13 +3,9 @@
 # the full copyright notices and license terms.
 from trytond.model import ModelSQL, ModelView,  Workflow, fields
 from trytond.pool import Pool
-from trytond.pyson import Eval, If, Bool
+from trytond.pyson import Eval, If
 from trytond.transaction import Transaction
-from trytond.cache import Cache
-import re
 from uuid import uuid4
-from decimal import Decimal
-from datetime import datetime
 
 __all__ = ['AccountPaymentGateway', 'AccountPaymentGatewayTransaction']
 READONLY_IF_NOT_DRAFT = {'readonly': Eval('state') != 'draft'}
