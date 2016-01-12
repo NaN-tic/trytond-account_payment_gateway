@@ -12,7 +12,7 @@ Para la conciliación de estos tipos de pago ya con facturas, consulte la docume
 de módulos que permiten conciliar facturas relacionado con el servicio de pago
 o bien conciliación mediante ficheros CSV.
 
-.. inheritref:: account_payment_gateway/account_payment_gateway:section:pasarelas_pagos
+.. inheritref:: account_payment_gateway/account_payment_gateway:section:pagos_mediante_pasarelas_pagos
 
 --------------------------------
 Pagos mediante pasarelas de pago
