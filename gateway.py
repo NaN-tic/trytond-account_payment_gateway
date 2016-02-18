@@ -23,6 +23,10 @@ class AccountPaymentGateway(ModelSQL, ModelView):
     active = fields.Boolean('Active')
     method = fields.Selection('get_methods', 'Method', required=True)
     journal = fields.Many2One('account.journal', 'Journal', required=True)
+    journal_writeoff = fields.Many2One('account.journal', 'Write Off Journal',
+        required=True)
+    writeoff_amount_percent = fields.Numeric('Write Off (%)', digits=(8, 4),
+        required=True)
 
     @staticmethod
     def default_company():
