@@ -10,6 +10,10 @@ this repository contains the full copyright notices and license terms. -->
     <field name="method"/>
     <label name="journal"/>
     <field name="journal"/>
+    <label name="journal_writeoff"/>
+    <field name="journal_writeoff"/>
+    <label name="writeoff_amount_percent"/>
+    <field name="writeoff_amount_percent" factor="100"/>
     <notebook colspan="4">
         <page string="Configuration" id="configuration">
         </page>
