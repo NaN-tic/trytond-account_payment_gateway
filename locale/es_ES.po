@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -34,6 +34,10 @@ msgctxt "field:account.payment.gateway,journal:"
 msgid "Journal"
 msgstr "Diario"
 
+msgctxt "field:account.payment.gateway,journal_writeoff:"
+msgid "Write Off Journal"
+msgstr "Diario de desajuste"
+
 msgctxt "field:account.payment.gateway,method:"
 msgid "Method"
 msgstr "Método"
@@ -53,6 +57,10 @@ msgstr "Fecha modificación"
 msgctxt "field:account.payment.gateway,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
+
+msgctxt "field:account.payment.gateway,writeoff_amount_percent:"
+msgid "Write Off (%)"
+msgstr "Desajuste (%)"
 
 msgctxt "field:account.payment.gateway.transaction,amount:"
 msgid "Amount"
