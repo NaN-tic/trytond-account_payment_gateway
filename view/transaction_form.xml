@@ -42,6 +42,8 @@ this repository contains the full copyright notices and license terms. -->
             icon="tryton-go-next"/>
         <button name="authorized" string="Authorized"
             icon="tryton-go-next"/>
+        <button name="refund" string="Refund"
+            icon="tryton-go-previous"/>
         <button name="confirm" string="Confirm"
             icon="tryton-go-next"/>
     </group>

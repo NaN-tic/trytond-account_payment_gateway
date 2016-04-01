@@ -82,6 +82,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         ('authorized', 'Authorized'),
         ('done', 'Done'),
         ('cancel', 'Canceled'),
+        ('refunded', 'Refunded'),
         ], 'State', readonly=True)
     log = fields.Text("Log", depends=['state'], states=READONLY_IF_NOT_DRAFT)
 
@@ -108,7 +109,9 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
                 ('pending', 'done'),
                 ('authorized', 'cancel'),
                 ('authorized', 'done'),
+                ('authorized', 'refunded'),
                 ('done', 'cancel'),
+                ('done', 'refunded'),
                 ))
         cls._buttons.update({
                 'cancel': {
@@ -128,6 +131,11 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
                 'confirm': {
                     'invisible': ~Eval('state').in_([
                         'draft', 'pending', 'authorized',
+                        ]),
+                    },
+                'refund': {
+                    'invisible': ~Eval('state').in_([
+                        'authorized', 'done',
                         ]),
                     },
                 })
@@ -242,6 +250,16 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     def confirm(cls, transactions):
         for transaction in transactions:
             method_name = 'confirm_%s' % transaction.gateway.method
+            if hasattr(transaction, method_name):
+                getattr(transaction, method_name)()
+        pass
+
+    @classmethod
+    @ModelView.button
+    @Workflow.transition('refunded')
+    def refund(cls, transactions):
+        for transaction in transactions:
+            method_name = 'refund_%s' % transaction.gateway.method
             if hasattr(transaction, method_name):
                 getattr(transaction, method_name)()
         pass
