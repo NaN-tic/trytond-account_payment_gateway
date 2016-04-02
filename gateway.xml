@@ -139,6 +139,14 @@ this repository contains the full copyright notices and license terms. -->
                 pyson="1"/>
             <field name="act_window" ref="act_window_account_payment_gateway_transaction"/>
         </record>
+        <record model="ir.action.act_window.domain" id="act_account_payment_gateway_transaction_refunded">
+            <field name="name">Refunded</field>
+            <field name="sequence" eval="50"/>
+            <field name="domain"
+                eval="[('state', '=', 'refunded')]"
+                pyson="1"/>
+            <field name="act_window" ref="act_window_account_payment_gateway_transaction"/>
+        </record>
         <record model="ir.action.act_window.domain" id="act_account_payment_gateway_transaction_all">
             <field name="name">All</field>
             <field name="sequence" eval="9999"/>

@@ -196,6 +196,11 @@ msgctxt ""
 msgid "Failed"
 msgstr "Fallida"
 
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_account_payment_gateway_transaction_refunded"
+msgid "Refunded"
+msgstr "Devolució"
+
 msgctxt "model:ir.sequence.type,name:sequence_type_payment_gateway"
 msgid "Payment Gateway"
 msgstr "Pasarel·la pagament"
@@ -248,6 +253,10 @@ msgctxt "selection:account.payment.gateway.transaction,state:"
 msgid "Pending"
 msgstr "Pendent"
 
+msgctxt "selection:account.payment.gateway.transaction,state:"
+msgid "Refunded"
+msgstr "Devolució"
+
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Are you sure to cancel the transaction?"
 msgstr "Esteu segurs de cancel·lar la transacció?"
@@ -283,6 +292,10 @@ msgstr "Altres informacions"
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Pending"
 msgstr "Pendent"
+
+msgctxt "view:account.payment.gateway.transaction:"
+msgid "Refund"
+msgstr "Devolució"
 
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Transaction"
