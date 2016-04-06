@@ -26,6 +26,10 @@ msgctxt "field:account.payment.gateway,create_uid:"
 msgid "Create User"
 msgstr "Usuari creació"
 
+msgctxt "field:account.payment.gateway,from_transactions:"
+msgid "From Transactions"
+msgstr "Desde transaccions"
+
 msgctxt "field:account.payment.gateway,id:"
 msgid "ID"
 msgstr "ID"
@@ -42,6 +46,10 @@ msgctxt "field:account.payment.gateway,method:"
 msgid "Method"
 msgstr "Mètode"
 
+msgctxt "field:account.payment.gateway,mode:"
+msgid "Mode"
+msgstr "Mode"
+
 msgctxt "field:account.payment.gateway,name:"
 msgid "Name"
 msgstr "Nom"
@@ -49,6 +57,14 @@ msgstr "Nom"
 msgctxt "field:account.payment.gateway,rec_name:"
 msgid "Name"
 msgstr "Nom"
+
+msgctxt "field:account.payment.gateway,scheduler:"
+msgid "Scheduler"
+msgstr "Planificació"
+
+msgctxt "field:account.payment.gateway,to_transactions:"
+msgid "To Transactions"
+msgstr "A transaccions"
 
 msgctxt "field:account.payment.gateway,write_date:"
 msgid "Write Date"
@@ -150,6 +166,18 @@ msgctxt "field:account.payment.type,gateway:"
 msgid "Gateway"
 msgstr "Pasarel·la"
 
+msgctxt "help:account.payment.gateway,from_transactions:"
+msgid "This date is last import (filter)"
+msgstr "La data última importació (filtre)"
+
+msgctxt "help:account.payment.gateway,scheduler:"
+msgid "Import transactions from Gateway"
+msgstr "Importa transaccions desde la pasarel·la de pagament"
+
+msgctxt "help:account.payment.gateway,to_transactions:"
+msgid "This date is to import (filter)"
+msgstr "La data inal de la importació (filtre)"
+
 msgctxt "model:account.payment.gateway,name:"
 msgid "Account Payment Gateway"
 msgstr "Passarel·la de pagament"
@@ -201,6 +229,10 @@ msgctxt ""
 msgid "Refunded"
 msgstr "Devolució"
 
+msgctxt "model:ir.cron,name:cron_gateway_import_transaction"
+msgid "Payment Gateway - Import Transactions"
+msgstr "Pasarel·la de pagament - Importa transaccions"
+
 msgctxt "model:ir.sequence.type,name:sequence_type_payment_gateway"
 msgid "Payment Gateway"
 msgstr "Pasarel·la pagament"
@@ -228,6 +260,14 @@ msgstr "Pasarel·la de pagament"
 msgctxt "model:res.group,name:group_account_payment_gateway_admin"
 msgid "Account Payment Gateway Administration"
 msgstr "Administració pasarel·la de pagament"
+
+msgctxt "selection:account.payment.gateway,mode:"
+msgid "Live"
+msgstr "Producció"
+
+msgctxt "selection:account.payment.gateway,mode:"
+msgid "Sandbox"
+msgstr "Sandbox"
 
 msgctxt "selection:account.payment.gateway.transaction,state:"
 msgid "Authorized"
@@ -306,6 +346,10 @@ msgid "Transactions"
 msgstr "Transaccions"
 
 msgctxt "view:account.payment.gateway:"
+msgid "Actions"
+msgstr "Accions"
+
+msgctxt "view:account.payment.gateway:"
 msgid "Configuration"
 msgstr "Configuració"
 
@@ -316,3 +360,7 @@ msgstr "Pasarel·la"
 msgctxt "view:account.payment.gateway:"
 msgid "Gateways"
 msgstr "Pasarel·les"
+
+msgctxt "view:account.payment.gateway:"
+msgid "Import Transactions"
+msgstr "Importa transaccions"
