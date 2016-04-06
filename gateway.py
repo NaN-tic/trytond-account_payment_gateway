@@ -1,11 +1,12 @@
 # This file is part account_payment_gateway module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
+from uuid import uuid4
+from datetime import datetime
 from trytond.model import ModelSQL, ModelView,  Workflow, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval, If
 from trytond.transaction import Transaction
-from uuid import uuid4
 
 __all__ = ['AccountPaymentGateway', 'AccountPaymentGatewayTransaction']
 READONLY_IF_NOT_DRAFT = {'readonly': Eval('state') != 'draft'}
@@ -22,11 +23,28 @@ class AccountPaymentGateway(ModelSQL, ModelView):
             ])
     active = fields.Boolean('Active')
     method = fields.Selection('get_methods', 'Method', required=True)
+    mode = fields.Selection([
+        ('live', 'Live'),
+        ('sandbox', 'Sandbox'),
+        ], 'Mode', required=True)
     journal = fields.Many2One('account.journal', 'Journal', required=True)
     journal_writeoff = fields.Many2One('account.journal', 'Write Off Journal',
         required=True)
     writeoff_amount_percent = fields.Numeric('Write Off (%)', digits=(8, 4),
         required=True)
+    from_transactions = fields.DateTime('From Transactions',
+        help='This date is last import (filter)', required=True)
+    to_transactions = fields.DateTime('To Transactions',
+        help='This date is to import (filter)')
+    scheduler = fields.Boolean('Scheduler',
+        help='Import transactions from Gateway')
+
+    @classmethod
+    def __setup__(cls):
+        super(AccountPaymentGateway, cls).__setup__()
+        cls._buttons.update({
+                'import_transactions': {},
+                })
 
     @staticmethod
     def default_company():
@@ -36,10 +54,40 @@ class AccountPaymentGateway(ModelSQL, ModelView):
     def default_active():
         return True
 
+    @staticmethod
+    def default_from_transactions():
+        return datetime.now()
+
     @classmethod
     def get_methods(cls):
         res = [(None, '')]
         return res
+
+    @staticmethod
+    def default_mode():
+        return 'live'
+
+    @classmethod
+    @ModelView.button
+    def import_transactions(self, gateways):
+        """
+        Import Transactions from Gateway APP
+        """
+        for gateway in gateways:
+            import_transaction = getattr(gateway, 'import_transactions_%s' %
+                gateway.method)
+            import_transaction()
+
+    @classmethod
+    def import_gateway(cls):
+        """
+        Import gateways transactions:
+        """
+        gateways = cls.search([
+            ('scheduler', '=', True),
+            ])
+        cls.import_transactions(gateways)
+        return True
 
 
 class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):

@@ -6,16 +6,27 @@ this repository contains the full copyright notices and license terms. -->
     <field name="name"/>
     <label name="active"/>
     <field name="active"/>
-    <label name="method"/>
-    <field name="method"/>
     <label name="journal"/>
     <field name="journal"/>
     <label name="journal_writeoff"/>
     <field name="journal_writeoff"/>
     <label name="writeoff_amount_percent"/>
     <field name="writeoff_amount_percent" factor="100"/>
-    <notebook colspan="4">
-        <page string="Configuration" id="configuration">
+    <notebook colspan="6">
+        <page string="Actions" id="actions" col="6">
+            <button name="import_transactions" string="Import Transactions"/>
+            <label name="from_transactions"/>
+            <field name="from_transactions"/>
+            <label name="to_transactions"/>
+            <field name="to_transactions"/><newline/>
+        </page>
+        <page string="Configuration" id="configuration" col="6">
+            <label name="scheduler"/>
+            <field name="scheduler"/>
+            <label name="method"/>
+            <field name="method"/>
+            <label name="mode"/>
+            <field name="mode"/>
         </page>
     </notebook>
 </form>
