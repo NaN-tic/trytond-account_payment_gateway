@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- This file is part account_payment_gateway of Tryton. The COPYRIGHT file at the top level of
 this repository contains the full copyright notices and license terms. -->
-<form string="Transaction">
+<form>
     <label name="uuid"/>
     <field name="uuid" xfill="1"/>
     <label name="description"/>
@@ -33,18 +33,18 @@ this repository contains the full copyright notices and license terms. -->
     </notebook>
     <group col="10" colspan="4" id="buttons">
         <field name="state"/>
-        <button name="cancel" string="Cancel"
+        <button name="cancel"
             icon="tryton-cancel"
             confirm="Are you sure to cancel the transaction?"/>
-        <button name="draft" string="Draft"
+        <button name="draft"
             icon="tryton-go-next"/>
-        <button name="pending" string="Pending"
+        <button name="pending"
             icon="tryton-go-next"/>
-        <button name="authorized" string="Authorized"
+        <button name="authorized"
             icon="tryton-go-next"/>
-        <button name="refund" string="Refund"
+        <button name="refund"
             icon="tryton-go-previous"/>
-        <button name="confirm" string="Confirm"
+        <button name="confirm"
             icon="tryton-go-next"/>
     </group>
 </form>

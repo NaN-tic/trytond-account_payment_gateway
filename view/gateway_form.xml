@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- This file is part account_payment_gateway of Tryton. The COPYRIGHT file at the top level of
 this repository contains the full copyright notices and license terms. -->
-<form string="Gateway">
+<form>
     <label name="name"/>
     <field name="name"/>
     <label name="active"/>
@@ -14,7 +14,7 @@ this repository contains the full copyright notices and license terms. -->
     <field name="writeoff_amount_percent" factor="100"/>
     <notebook colspan="6">
         <page string="Actions" id="actions" col="6">
-            <button name="import_transactions" string="Import Transactions"/>
+            <button name="import_transactions"/>
             <label name="from_transactions"/>
             <field name="from_transactions"/>
             <label name="to_transactions"/>

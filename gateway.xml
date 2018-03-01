@@ -208,5 +208,48 @@ this repository contains the full copyright notices and license terms. -->
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+
+        <record model="ir.model.button" id="account_payment_gateway_import_transactions_button">
+            <field name="name">import_transactions</field>
+            <field name="string">Import Transactions</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway')]"/>
+        </record>
+
+        <record model="ir.model.button" id="account_payment_gateway_transaction_cancel_button">
+            <field name="name">cancel</field>
+            <field name="string">Cancel</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway.transaction')]"/>
+        </record>
+
+        <record model="ir.model.button" id="account_payment_gateway_transaction_draft_button">
+            <field name="name">draft</field>
+            <field name="string">Draft</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway.transaction')]"/>
+        </record>
+
+        <record model="ir.model.button" id="account_payment_gateway_transaction_pending_button">
+            <field name="name">pending</field>
+            <field name="string">Pending</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway.transaction')]"/>
+        </record>
+
+        <record model="ir.model.button" id="account_payment_gateway_transaction_authorized_button">
+            <field name="name">authorized</field>
+            <field name="string">Authorized</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway.transaction')]"/>
+        </record>
+
+        <record model="ir.model.button" id="account_payment_gateway_transaction_confirm_button">
+            <field name="name">confirm</field>
+            <field name="string">Confirm</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway.transaction')]"/>
+        </record>
+
+        <record model="ir.model.button" id="account_payment_gateway_transaction_refund_button">
+            <field name="name">refund</field>
+            <field name="string">Refund</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway.transaction')]"/>
+        </record>
+
     </data>
 </tryton>

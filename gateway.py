@@ -3,7 +3,7 @@
 # the full copyright notices and license terms.
 from uuid import uuid4
 from datetime import datetime
-from trytond.model import ModelSQL, ModelView,  Workflow, fields
+from trytond.model import ModelSQL, ModelView, Workflow, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval, If
 from trytond.transaction import Transaction
@@ -99,8 +99,9 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         depends=['state'])
     origin = fields.Reference('Origin', selection='get_origin', select=True,
         states=READONLY_IF_NOT_DRAFT, depends=['state'])
-    gateway = fields.Many2One('account.payment.gateway', 'Gateway', required=True,
-        states=READONLY_IF_NOT_DRAFT, depends=['state'], ondelete='RESTRICT')
+    gateway = fields.Many2One('account.payment.gateway', 'Gateway',
+        required=True, states=READONLY_IF_NOT_DRAFT, depends=['state'],
+        ondelete='RESTRICT')
     reference_gateway = fields.Char('Reference Gateway',
         states=READONLY_IF_NOT_DRAFT, depends=['state'])
     authorisation_code = fields.Char('Authorisation Code',
@@ -122,7 +123,8 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         required=True, depends=['state'], states=READONLY_IF_NOT_DRAFT)
     currency_digits = fields.Function(fields.Integer('Currency Digits'),
         'on_change_with_currency_digits')
-    method = fields.Function(fields.Char('Payment Gateway Method'), 'get_method')
+    method = fields.Function(fields.Char('Payment Gateway Method'),
+        'get_method')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('pending', 'Pending'),
@@ -139,8 +141,8 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         super(AccountPaymentGatewayTransaction, cls).__setup__()
         cls._order.insert(0, ('date', 'DESC'))
         cls._error_messages.update({
-                'missing_debit_account': 'Journal "%s" has not got a debit '
-                    'account',
+                'missing_debit_account': ('Journal "%s" has not got a debit '
+                    'account'),
                 'delete_cancel': ('Transaction "%s" must be cancelled before '
                     'deletion.'),
                 })
