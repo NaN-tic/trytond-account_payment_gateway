@@ -9,6 +9,7 @@ from trytond.pyson import Eval, If
 from trytond.transaction import Transaction
 
 __all__ = ['AccountPaymentGateway', 'AccountPaymentGatewayTransaction']
+
 READONLY_IF_NOT_DRAFT = {'readonly': Eval('state') != 'draft'}
 
 
@@ -192,7 +193,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
 
     @staticmethod
     def default_uuid():
-        return unicode(uuid4())
+        return uuid4()
 
     @staticmethod
     def default_date():

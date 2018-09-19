@@ -7,7 +7,6 @@ from trytond.pool import PoolMeta
 __all__ = ['PaymentType']
 
 
-class PaymentType:
-    __metaclass__ = PoolMeta
+class PaymentType(metaclass=PoolMeta):
     __name__ = 'account.payment.type'
     gateway = fields.Many2One('account.payment.gateway', 'Gateway')
