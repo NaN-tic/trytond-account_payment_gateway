@@ -7,6 +7,8 @@ from trytond.model import ModelSQL, ModelView, Workflow, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval, If
 from trytond.transaction import Transaction
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['AccountPaymentGateway', 'AccountPaymentGatewayTransaction']
 
@@ -141,12 +143,6 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     def __setup__(cls):
         super(AccountPaymentGatewayTransaction, cls).__setup__()
         cls._order.insert(0, ('date', 'DESC'))
-        cls._error_messages.update({
-                'missing_debit_account': ('Journal "%s" has not got a debit '
-                    'account'),
-                'delete_cancel': ('Transaction "%s" must be cancelled before '
-                    'deletion.'),
-                })
         cls._transitions |= set((
                 ('draft', 'cancel'),
                 ('draft', 'pending'),
@@ -242,7 +238,8 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         cls.cancel(transactions)
         for transaction in transactions:
             if transaction.state != 'cancel':
-                cls.raise_user_error('delete_cancel', (transaction.rec_name,))
+                raise UserError(gettext('account_payment_gateway.delete_cancel',
+                    transaction=transaction.rec_name))
         super(AccountPaymentGatewayTransaction, cls).delete(transactions)
 
     @fields.depends('currency')
