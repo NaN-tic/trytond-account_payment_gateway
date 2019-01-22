@@ -63,8 +63,7 @@ class AccountPaymentGateway(ModelSQL, ModelView):
 
     @classmethod
     def get_methods(cls):
-        res = [(None, '')]
-        return res
+        return []
 
     @staticmethod
     def default_mode():
