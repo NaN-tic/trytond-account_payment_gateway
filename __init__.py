@@ -4,6 +4,7 @@
 from trytond.pool import Pool
 from . import gateway
 from . import payment_type
+from . import party
 
 
 def register():
@@ -12,3 +13,6 @@ def register():
         gateway.AccountPaymentGatewayTransaction,
         payment_type.PaymentType,
         module='account_payment_gateway', type_='model')
+    Pool.register(
+        party.PartyReplace,
+        module='account_payment_gateway', type_='wizard')
