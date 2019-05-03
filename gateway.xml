@@ -38,16 +38,10 @@ this repository contains the full copyright notices and license terms. -->
 
         <!-- cron -->
         <record model="ir.cron" id="cron_gateway_import_transaction">
-            <field name="name">Payment Gateway - Import Transactions</field>
-            <field name="request_user" ref="res.user_admin"/>
-            <field name="user" ref="res.user_trigger"/>
             <field name="active" eval="True"/>
-            <field name="interval_number">1</field>
+            <field name="interval_number" eval="1"/>
             <field name="interval_type">days</field>
-            <field name="number_calls">-1</field>
-            <field name="repeat_missed" eval="False"/>
-            <field name="model">account.payment.gateway</field>
-            <field name="function">import_gateway</field>
+            <field name="method">account.payment.gateway|import_gateway</field>
         </record>
 
         <!-- account.payment.gateway -->
