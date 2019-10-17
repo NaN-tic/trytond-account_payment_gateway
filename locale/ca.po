@@ -2,14 +2,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "error:account.payment.gateway.transaction:"
-msgid "Journal \"%s\" has not got a debit account"
-msgstr "El diari \"%s\" no disposa d'un compte deure"
-
-msgctxt "error:account.payment.gateway.transaction:"
-msgid "Transaction \"%s\" must be cancelled before deletion."
-msgstr "La transacció \"%s\" ha de ser cancel·lada abans de ser eliminada."
-
 msgctxt "field:account.payment.gateway,active:"
 msgid "Active"
 msgstr "Actiu"
@@ -18,21 +10,9 @@ msgctxt "field:account.payment.gateway,company:"
 msgid "Company"
 msgstr "Empresa"
 
-msgctxt "field:account.payment.gateway,create_date:"
-msgid "Create Date"
-msgstr "Data creació"
-
-msgctxt "field:account.payment.gateway,create_uid:"
-msgid "Create User"
-msgstr "Usuari creació"
-
 msgctxt "field:account.payment.gateway,from_transactions:"
 msgid "From Transactions"
 msgstr "Desde transaccions"
-
-msgctxt "field:account.payment.gateway,id:"
-msgid "ID"
-msgstr "ID"
 
 msgctxt "field:account.payment.gateway,journal:"
 msgid "Journal"
@@ -54,10 +34,6 @@ msgctxt "field:account.payment.gateway,name:"
 msgid "Name"
 msgstr "Nom"
 
-msgctxt "field:account.payment.gateway,rec_name:"
-msgid "Name"
-msgstr "Nom"
-
 msgctxt "field:account.payment.gateway,scheduler:"
 msgid "Scheduler"
 msgstr "Planificació"
@@ -65,14 +41,6 @@ msgstr "Planificació"
 msgctxt "field:account.payment.gateway,to_transactions:"
 msgid "To Transactions"
 msgstr "A transaccions"
-
-msgctxt "field:account.payment.gateway,write_date:"
-msgid "Write Date"
-msgstr "Data modificació"
-
-msgctxt "field:account.payment.gateway,write_uid:"
-msgid "Write User"
-msgstr "Usuari modificació"
 
 msgctxt "field:account.payment.gateway,writeoff_amount_percent:"
 msgid "Write Off (%)"
@@ -89,14 +57,6 @@ msgstr "Codi autorització"
 msgctxt "field:account.payment.gateway.transaction,company:"
 msgid "Company"
 msgstr "Empresa"
-
-msgctxt "field:account.payment.gateway.transaction,create_date:"
-msgid "Create Date"
-msgstr "Data creació"
-
-msgctxt "field:account.payment.gateway.transaction,create_uid:"
-msgid "Create User"
-msgstr "Usuari creació"
 
 msgctxt "field:account.payment.gateway.transaction,currency:"
 msgid "Currency"
@@ -118,10 +78,6 @@ msgctxt "field:account.payment.gateway.transaction,gateway:"
 msgid "Gateway"
 msgstr "Pasarel·la"
 
-msgctxt "field:account.payment.gateway.transaction,id:"
-msgid "ID"
-msgstr "ID"
-
 msgctxt "field:account.payment.gateway.transaction,log:"
 msgid "Log"
 msgstr "Log"
@@ -138,10 +94,6 @@ msgctxt "field:account.payment.gateway.transaction,party:"
 msgid "Party"
 msgstr "Tercer"
 
-msgctxt "field:account.payment.gateway.transaction,rec_name:"
-msgid "Name"
-msgstr "Nom"
-
 msgctxt "field:account.payment.gateway.transaction,reference_gateway:"
 msgid "Reference Gateway"
 msgstr "Referencia pasarel·la pagament"
@@ -153,14 +105,6 @@ msgstr "Estat"
 msgctxt "field:account.payment.gateway.transaction,uuid:"
 msgid "UUID"
 msgstr "UUID"
-
-msgctxt "field:account.payment.gateway.transaction,write_date:"
-msgid "Write Date"
-msgstr "Data modificació"
-
-msgctxt "field:account.payment.gateway.transaction,write_uid:"
-msgid "Write User"
-msgstr "Usuari modificació"
 
 msgctxt "field:account.payment.type,gateway:"
 msgid "Gateway"
@@ -229,9 +173,48 @@ msgctxt ""
 msgid "Refunded"
 msgstr "Devolució"
 
-msgctxt "model:ir.cron,name:cron_gateway_import_transaction"
-msgid "Payment Gateway - Import Transactions"
-msgstr "Pasarel·la de pagament - Importa transaccions"
+msgctxt "model:ir.message,text:delete_cancel"
+msgid "Transaction \"%(transaction)s\" must be cancelled before deletion."
+msgstr ""
+
+msgctxt "model:ir.message,text:missing_debit_account"
+msgid "Journal \"%(journal)s\" has not got a debit account"
+msgstr ""
+
+msgctxt ""
+"model:ir.model.button,string:account_payment_gateway_import_transactions_button"
+msgid "Import Transactions"
+msgstr ""
+
+msgctxt ""
+"model:ir.model.button,string:account_payment_gateway_transaction_authorized_button"
+msgid "Authorized"
+msgstr "Autoritzat"
+
+msgctxt ""
+"model:ir.model.button,string:account_payment_gateway_transaction_cancel_button"
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgctxt ""
+"model:ir.model.button,string:account_payment_gateway_transaction_confirm_button"
+msgid "Confirm"
+msgstr "Confirmació"
+
+msgctxt ""
+"model:ir.model.button,string:account_payment_gateway_transaction_draft_button"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt ""
+"model:ir.model.button,string:account_payment_gateway_transaction_pending_button"
+msgid "Pending"
+msgstr "Pendent"
+
+msgctxt ""
+"model:ir.model.button,string:account_payment_gateway_transaction_refund_button"
+msgid "Refund"
+msgstr ""
 
 msgctxt "model:ir.sequence.type,name:sequence_type_payment_gateway"
 msgid "Payment Gateway"
@@ -275,7 +258,7 @@ msgstr "Autoritzat"
 
 msgctxt "selection:account.payment.gateway.transaction,state:"
 msgid "Canceled"
-msgstr "Cancel·lada"
+msgstr "Cancel·lat"
 
 msgctxt "selection:account.payment.gateway.transaction,state:"
 msgid "Done"
@@ -297,25 +280,13 @@ msgctxt "selection:account.payment.gateway.transaction,state:"
 msgid "Refunded"
 msgstr "Devolució"
 
+msgctxt "selection:ir.cron,method:"
+msgid "Payment Gateway - Import Transactions"
+msgstr ""
+
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "Are you sure to cancel the transaction?"
 msgstr "Esteu segurs de cancel·lar la transacció?"
-
-msgctxt "view:account.payment.gateway.transaction:"
-msgid "Authorized"
-msgstr "Autoritzat"
-
-msgctxt "view:account.payment.gateway.transaction:"
-msgid "Cancel"
-msgstr "Cancel·la"
-
-msgctxt "view:account.payment.gateway.transaction:"
-msgid "Confirm"
-msgstr "Confirma"
-
-msgctxt "view:account.payment.gateway.transaction:"
-msgid "Draft"
-msgstr "Esborrany"
 
 msgctxt "view:account.payment.gateway.transaction:"
 msgid "General"
@@ -329,22 +300,6 @@ msgctxt "view:account.payment.gateway.transaction:"
 msgid "Other Information"
 msgstr "Altres informacions"
 
-msgctxt "view:account.payment.gateway.transaction:"
-msgid "Pending"
-msgstr "Pendent"
-
-msgctxt "view:account.payment.gateway.transaction:"
-msgid "Refund"
-msgstr "Devolució"
-
-msgctxt "view:account.payment.gateway.transaction:"
-msgid "Transaction"
-msgstr "Transacció"
-
-msgctxt "view:account.payment.gateway.transaction:"
-msgid "Transactions"
-msgstr "Transaccions"
-
 msgctxt "view:account.payment.gateway:"
 msgid "Actions"
 msgstr "Accions"
@@ -352,15 +307,3 @@ msgstr "Accions"
 msgctxt "view:account.payment.gateway:"
 msgid "Configuration"
 msgstr "Configuració"
-
-msgctxt "view:account.payment.gateway:"
-msgid "Gateway"
-msgstr "Pasarel·la"
-
-msgctxt "view:account.payment.gateway:"
-msgid "Gateways"
-msgstr "Pasarel·les"
-
-msgctxt "view:account.payment.gateway:"
-msgid "Import Transactions"
-msgstr "Importa transaccions"
