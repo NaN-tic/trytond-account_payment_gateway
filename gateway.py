@@ -133,7 +133,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         ('failed', 'Failed'),
         ('authorized', 'Authorized'),
         ('done', 'Done'),
-        ('cancel', 'Canceled'),
+        ('cancelled', "Cancelled"),
         ('refunded', 'Refunded'),
         ], 'State', readonly=True)
     log = fields.Text("Log", depends=['state'], states=READONLY_IF_NOT_DRAFT)
@@ -143,20 +143,20 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         super(AccountPaymentGatewayTransaction, cls).__setup__()
         cls._order.insert(0, ('date', 'DESC'))
         cls._transitions |= set((
-                ('draft', 'cancel'),
+                ('draft', 'cancelled'),
                 ('draft', 'pending'),
                 ('draft', 'failed'),
                 ('draft', 'authorized'),
                 ('draft', 'done'),
-                ('cancel', 'draft'),
+                ('cancelled', 'draft'),
                 ('failed', 'draft'),
-                ('pending', 'cancel'),
+                ('pending', 'cancelled'),
                 ('pending', 'authorized'),
                 ('pending', 'done'),
-                ('authorized', 'cancel'),
+                ('authorized', 'cancelled'),
                 ('authorized', 'done'),
                 ('authorized', 'refunded'),
-                ('done', 'cancel'),
+                ('done', 'cancelled'),
                 ('done', 'refunded'),
                 ))
         cls._buttons.update({
@@ -166,7 +166,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
                         ]),
                     },
                 'draft': {
-                    'invisible': ~Eval('state').in_(['cancel']),
+                    'invisible': ~Eval('state').in_(['cancelled']),
                     },
                 'pending': {
                     'invisible': ~Eval('state').in_(['draft']),
@@ -185,6 +185,18 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
                         ]),
                     },
                 })
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().connection.cursor()
+        sql_table = cls.__table__()
+
+        super(AccountPaymentGatewayTransaction, cls).__register__(module_name)
+
+        # Migration from 5.6: rename state cancel to cancelled
+        cursor.execute(*sql_table.update(
+                [sql_table.state], ['cancelled'],
+                where=sql_table.state == 'cancel'))
 
     @staticmethod
     def default_uuid():
@@ -236,7 +248,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         # Cancel before delete
         cls.cancel(transactions)
         for transaction in transactions:
-            if transaction.state != 'cancel':
+            if transaction.state != 'cancelled':
                 raise UserError(gettext('account_payment_gateway.delete_cancel',
                     transaction=transaction.rec_name))
         super(AccountPaymentGatewayTransaction, cls).delete(transactions)
@@ -253,7 +265,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
 
     @classmethod
     @ModelView.button
-    @Workflow.transition('cancel')
+    @Workflow.transition('cancelled')
     def cancel(cls, transactions):
         for transaction in transactions:
             method_name = 'cancel_%s' % transaction.gateway.method

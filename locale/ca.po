@@ -257,7 +257,7 @@ msgid "Authorized"
 msgstr "Autoritzat"
 
 msgctxt "selection:account.payment.gateway.transaction,state:"
-msgid "Canceled"
+msgid "Cancelled"
 msgstr "Cancel·lat"
 
 msgctxt "selection:account.payment.gateway.transaction,state:"
