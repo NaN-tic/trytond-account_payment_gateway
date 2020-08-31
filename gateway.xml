@@ -119,7 +119,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="name">Cancel</field>
             <field name="sequence" eval="20"/>
             <field name="domain"
-                eval="[('state', '=', 'cancel')]"
+                eval="[('state', '=', 'cancelled')]"
                 pyson="1"/>
             <field name="act_window" ref="act_window_account_payment_gateway_transaction"/>
         </record>
