@@ -269,7 +269,6 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
             method_name = 'draft_%s' % transaction.gateway.method
             if hasattr(transaction, method_name):
                 getattr(transaction, method_name)()
-        pass
 
     @classmethod
     @ModelView.button
@@ -279,7 +278,6 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
             method_name = 'pending_%s' % transaction.gateway.method
             if hasattr(transaction, method_name):
                 getattr(transaction, method_name)()
-        pass
 
     @classmethod
     @ModelView.button
@@ -289,7 +287,6 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
             method_name = 'authorized_%s' % transaction.gateway.method
             if hasattr(transaction, method_name):
                 getattr(transaction, method_name)()
-        pass
 
     @classmethod
     @ModelView.button
@@ -299,7 +296,6 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
             method_name = 'confirm_%s' % transaction.gateway.method
             if hasattr(transaction, method_name):
                 getattr(transaction, method_name)()
-        pass
 
     @classmethod
     @ModelView.button
@@ -309,4 +305,3 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
             method_name = 'refund_%s' % transaction.gateway.method
             if hasattr(transaction, method_name):
                 getattr(transaction, method_name)()
-        pass
