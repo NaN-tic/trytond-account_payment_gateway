@@ -23,7 +23,6 @@ this repository contains the full copyright notices and license terms. -->
         <!-- Sequence types -->
         <record model="ir.sequence.type" id="sequence_type_payment_gateway">
             <field name="name">Payment Gateway</field>
-            <field name="code">payment.gateway</field>
         </record>
         <record model="ir.sequence.type-res.group"
             id="sequence_type_payment_gateway_group_admin">
