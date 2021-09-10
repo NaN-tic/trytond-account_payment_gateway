@@ -3,7 +3,7 @@
 # the full copyright notices and license terms.
 from uuid import uuid4
 from datetime import datetime
-from trytond.model import ModelSQL, ModelView, Workflow, fields
+from trytond.model import ModelSQL, ModelView, Workflow, DeactivableMixin, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval, If
 from trytond.transaction import Transaction
@@ -15,7 +15,7 @@ __all__ = ['AccountPaymentGateway', 'AccountPaymentGatewayTransaction']
 READONLY_IF_NOT_DRAFT = {'readonly': Eval('state') != 'draft'}
 
 
-class AccountPaymentGateway(ModelSQL, ModelView):
+class AccountPaymentGateway(DeactivableMixin, ModelSQL, ModelView):
     "Account Payment Gateway"
     __name__ = 'account.payment.gateway'
     name = fields.Char('Name', required=True)
@@ -24,7 +24,6 @@ class AccountPaymentGateway(ModelSQL, ModelView):
             ('id', If(Eval('context', {}).contains('company'), '=', '!='),
                 Eval('context', {}).get('company', 0)),
             ])
-    active = fields.Boolean('Active')
     method = fields.Selection('get_methods', 'Method', required=True)
     mode = fields.Selection([
         ('live', 'Live'),
@@ -52,10 +51,6 @@ class AccountPaymentGateway(ModelSQL, ModelView):
     @staticmethod
     def default_company():
         return Transaction().context.get('company')
-
-    @staticmethod
-    def default_active():
-        return True
 
     @staticmethod
     def default_from_transactions():
