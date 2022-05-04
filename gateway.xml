@@ -244,5 +244,28 @@ this repository contains the full copyright notices and license terms. -->
             <field name="model" search="[('model', '=', 'account.payment.gateway.transaction')]"/>
         </record>
 
+        <record model="ir.rule.group" id="rule_group_account_payment_gateway">
+            <field name="name">User in company</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway')]"/>
+            <field name="global_p" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_account_payment_gateway1">
+            <field name="domain"
+                eval="[('company', 'in', Eval('companies', []))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_account_payment_gateway"/>
+        </record>
+
+        <record model="ir.rule.group" id="rule_group_account_payment_gateway_transaction">
+            <field name="name">User in company</field>
+            <field name="model" search="[('model', '=', 'account.payment.gateway.transaction')]"/>
+            <field name="global_p" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_account_payment_gateway_transaction1">
+            <field name="domain"
+                eval="[('company', 'in', Eval('companies', []))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_account_payment_gateway_transaction"/>
+        </record>
     </data>
 </tryton>
