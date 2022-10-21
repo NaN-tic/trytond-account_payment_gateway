@@ -199,7 +199,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="True"/>
-            <field name="perm_delete" eval="True"/>
+            <field name="perm_delete" eval="False"/>
         </record>
 
         <record model="ir.model.button" id="account_payment_gateway_import_transactions_button">
