@@ -20,7 +20,7 @@ class AccountPaymentGateway(DeactivableMixin, ModelSQL, ModelView):
     __name__ = 'account.payment.gateway'
     name = fields.Char('Name', required=True)
     company = fields.Many2One('company.company', 'Company', required=True,
-        select=True, readonly=True, domain=[
+        readonly=True, domain=[
             ('id', If(Eval('context', {}).contains('company'), '=', '!='),
                 Eval('context', {}).get('company', 0)),
             ])
@@ -99,7 +99,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     uuid = fields.Char('UUID', required=True, readonly=True)
     description = fields.Char('Description', states=READONLY_IF_NOT_DRAFT,
         depends=['state'])
-    origin = fields.Reference('Origin', selection='get_origin', select=True,
+    origin = fields.Reference('Origin', selection='get_origin',
         states=READONLY_IF_NOT_DRAFT, depends=['state'])
     gateway = fields.Many2One('account.payment.gateway', 'Gateway',
         required=True, states=READONLY_IF_NOT_DRAFT, depends=['state'],
@@ -111,7 +111,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     date = fields.Date('Date', required=True,
         states=READONLY_IF_NOT_DRAFT, depends=['state'])
     company = fields.Many2One('company.company', 'Company', required=True,
-        states=READONLY_IF_NOT_DRAFT, select=True,
+        states=READONLY_IF_NOT_DRAFT,
         domain=[
             ('id', If(Eval('context', {}).contains('company'), '=', '!='),
                 Eval('context', {}).get('company', -1)),
