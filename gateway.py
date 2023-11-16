@@ -31,11 +31,11 @@ class AccountPaymentGateway(DeactivableMixin, ModelSQL, ModelView):
         ], 'Mode', required=True)
     journal = fields.Many2One('account.journal', 'Journal', required=True,
         context={
-            'company': Eval('company'),
+            'company': Eval('company', -1),
         }, depends=['company'])
     journal_writeoff = fields.Many2One('account.journal', 'Write Off Journal',
         required=True, context={
-            'company': Eval('company'),
+            'company': Eval('company', -1),
         }, depends=['company'])
     writeoff_amount_percent = fields.Numeric('Write Off (%)', digits=(8, 4),
         required=True)
@@ -118,7 +118,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         ], depends=['state'])
     party = fields.Many2One('party.party', 'Party', ondelete='RESTRICT',
         context={
-            'company': Eval('company'),
+            'company': Eval('company', -1),
         }, depends=['state', 'company'], states=READONLY_IF_NOT_DRAFT)
     amount = fields.Numeric('Amount', digits=(16, Eval('currency_digits', 2)),
         required=True, depends=['state', 'currency_digits'],
