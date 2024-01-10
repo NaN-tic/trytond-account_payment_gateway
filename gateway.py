@@ -100,31 +100,31 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     description = fields.Char('Description', states=READONLY_IF_NOT_DRAFT,
         depends=['state'])
     origin = fields.Reference('Origin', selection='get_origin',
-        states=READONLY_IF_NOT_DRAFT, depends=['state'])
+        states=READONLY_IF_NOT_DRAFT)
     gateway = fields.Many2One('account.payment.gateway', 'Gateway',
-        required=True, states=READONLY_IF_NOT_DRAFT, depends=['state'],
+        required=True, states=READONLY_IF_NOT_DRAFT,
         ondelete='RESTRICT')
     reference_gateway = fields.Char('Reference Gateway',
-        states=READONLY_IF_NOT_DRAFT, depends=['state'])
+        states=READONLY_IF_NOT_DRAFT)
     authorisation_code = fields.Char('Authorisation Code',
-        states=READONLY_IF_NOT_DRAFT, depends=['state'])
+        states=READONLY_IF_NOT_DRAFT)
     date = fields.Date('Date', required=True,
-        states=READONLY_IF_NOT_DRAFT, depends=['state'])
+        states=READONLY_IF_NOT_DRAFT)
     company = fields.Many2One('company.company', 'Company', required=True,
         states=READONLY_IF_NOT_DRAFT,
         domain=[
             ('id', If(Eval('context', {}).contains('company'), '=', '!='),
                 Eval('context', {}).get('company', -1)),
-        ], depends=['state'])
+        ])
     party = fields.Many2One('party.party', 'Party', ondelete='RESTRICT',
         context={
             'company': Eval('company', -1),
         }, depends=['state', 'company'], states=READONLY_IF_NOT_DRAFT)
     amount = fields.Numeric('Amount', digits=(16, Eval('currency_digits', 2)),
-        required=True, depends=['state', 'currency_digits'],
+        required=True,
         states=READONLY_IF_NOT_DRAFT)
     currency = fields.Many2One('currency.currency', 'Currency',
-        required=True, depends=['state'], states=READONLY_IF_NOT_DRAFT)
+        required=True, states=READONLY_IF_NOT_DRAFT)
     currency_digits = fields.Function(fields.Integer('Currency Digits'),
         'on_change_with_currency_digits')
     method = fields.Function(fields.Char('Payment Gateway Method'),
@@ -138,7 +138,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         ('cancelled', "Cancelled"),
         ('refunded', 'Refunded'),
         ], 'State', readonly=True)
-    log = fields.Text("Log", depends=['state'], states=READONLY_IF_NOT_DRAFT)
+    log = fields.Text("Log", states=READONLY_IF_NOT_DRAFT)
 
     @classmethod
     def __setup__(cls):
