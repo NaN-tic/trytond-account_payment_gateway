@@ -97,8 +97,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     __name__ = 'account.payment.gateway.transaction'
     _rec_name = 'uuid'
     uuid = fields.Char('UUID', required=True, readonly=True)
-    description = fields.Char('Description', states=READONLY_IF_NOT_DRAFT,
-        depends=['state'])
+    description = fields.Char('Description', states=READONLY_IF_NOT_DRAFT)
     origin = fields.Reference('Origin', selection='get_origin',
         states=READONLY_IF_NOT_DRAFT)
     gateway = fields.Many2One('account.payment.gateway', 'Gateway',
@@ -119,7 +118,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     party = fields.Many2One('party.party', 'Party', ondelete='RESTRICT',
         context={
             'company': Eval('company', -1),
-        }, depends=['state', 'company'], states=READONLY_IF_NOT_DRAFT)
+        }, depends=['company'], states=READONLY_IF_NOT_DRAFT)
     amount = fields.Numeric('Amount', digits=(16, Eval('currency_digits', 2)),
         required=True,
         states=READONLY_IF_NOT_DRAFT)
