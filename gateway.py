@@ -202,7 +202,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
 
     @staticmethod
     def default_uuid():
-        return uuid4()
+        return '%s' % uuid4()
 
     @staticmethod
     def default_date():
