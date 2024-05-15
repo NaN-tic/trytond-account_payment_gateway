@@ -27,8 +27,8 @@ this repository contains the full copyright notices and license terms. -->
             <label name="authorisation_code"/>
             <field name="authorisation_code"/>
         </page>
-        <page string="Logs" id="log">
-            <field name="log"/>
+        <page string="Logs" id="gateway_log">
+            <field name="gateway_log"/>
         </page>
     </notebook>
     <group col="10" colspan="4" id="buttons">
