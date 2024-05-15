@@ -78,9 +78,9 @@ msgctxt "field:account.payment.gateway.transaction,gateway:"
 msgid "Gateway"
 msgstr "Pasarela"
 
-msgctxt "field:account.payment.gateway.transaction,log:"
-msgid "Log"
-msgstr "Log"
+msgctxt "field:account.payment.gateway.transaction,gateway_log:"
+msgid "Gateway Log"
+msgstr "Pasarela Log"
 
 msgctxt "field:account.payment.gateway.transaction,method:"
 msgid "Payment Gateway Method"

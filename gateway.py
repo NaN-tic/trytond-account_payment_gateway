@@ -137,7 +137,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         ('cancelled', "Cancelled"),
         ('refunded', 'Refunded'),
         ], 'State', readonly=True)
-    log = fields.Text("Log", states=READONLY_IF_NOT_DRAFT)
+    gateway_log = fields.Text("Gateway Log", states=READONLY_IF_NOT_DRAFT)
 
     @classmethod
     def __setup__(cls):
@@ -190,7 +190,13 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     @classmethod
     def __register__(cls, module_name):
         cursor = Transaction().connection.cursor()
+        table = cls.__table_handler__(module_name)
         sql_table = cls.__table__()
+
+        # Migration from 6.8: rename log to gateway_log
+        if (table.column_exist('log')
+                and not table.column_exist('gateway_log')):
+            table.column_rename('log', 'gateway_log')
 
         super(AccountPaymentGatewayTransaction, cls).__register__(module_name)
 
