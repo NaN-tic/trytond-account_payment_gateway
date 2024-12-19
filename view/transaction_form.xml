@@ -37,14 +37,14 @@ this repository contains the full copyright notices and license terms. -->
             icon="tryton-cancel"
             confirm="Are you sure to cancel the transaction?"/>
         <button name="draft"
-            icon="tryton-go-next"/>
+            icon="tryton-forward"/>
         <button name="pending"
-            icon="tryton-go-next"/>
+            icon="tryton-forward"/>
         <button name="authorized"
-            icon="tryton-go-next"/>
+            icon="tryton-forward"/>
         <button name="refund"
-            icon="tryton-go-previous"/>
+            icon="tryton-back"/>
         <button name="confirm"
-            icon="tryton-go-next"/>
+            icon="tryton-forward"/>
     </group>
 </form>
