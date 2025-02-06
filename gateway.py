@@ -238,8 +238,8 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
     def get_origin(cls):
         IrModel = Pool().get('ir.model')
         models = cls._get_origin()
-        models = IrModel.search([('model', 'in', models)])
-        return [(None, '')] + [(m.model, m.name) for m in models]
+        models = IrModel.search([('name', 'in', models)])
+        return [(None, '')] + [(m.name, m.string) for m in models]
 
     @classmethod
     def copy(cls, transactions, default=None):
