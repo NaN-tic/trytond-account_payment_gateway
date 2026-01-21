@@ -10,8 +10,6 @@ from trytond.transaction import Transaction
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
-__all__ = ['AccountPaymentGateway', 'AccountPaymentGatewayTransaction']
-
 READONLY_IF_NOT_DRAFT = {'readonly': Eval('state') != 'draft'}
 
 
@@ -76,6 +74,8 @@ class AccountPaymentGateway(DeactivableMixin, ModelSQL, ModelView):
         Import Transactions from Gateway APP
         """
         for gateway in gateways:
+            if not gateway.method:
+                continue
             import_transaction = getattr(gateway, 'import_transactions_%s' %
                 gateway.method)
             import_transaction()
