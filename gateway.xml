@@ -36,12 +36,15 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <!-- cron -->
+    </data>
+    <data noupdate="1">
         <record model="ir.cron" id="cron_gateway_import_transaction">
-            <field name="active" eval="True"/>
             <field name="interval_number" eval="1"/>
             <field name="interval_type">days</field>
             <field name="method">account.payment.gateway|import_gateway</field>
         </record>
+    </data>
+    <data>
 
         <!-- account.payment.gateway -->
         <record model="ir.ui.view" id="account_payment_gateway_view_form">
