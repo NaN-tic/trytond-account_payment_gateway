@@ -205,9 +205,12 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
                 [sql_table.state], ['cancelled'],
                 where=sql_table.state == 'cancel'))
 
-    @staticmethod
-    def default_uuid():
-        return '%s' % uuid4()
+    @classmethod
+    def preprocess_values(cls, mode, values):
+        values = super().preprocess_values(mode, values)
+        if mode == 'create' and not values.get('uuid'):
+            values['uuid'] = str(uuid4())
+        return values
 
     @staticmethod
     def default_date():
@@ -246,7 +249,7 @@ class AccountPaymentGatewayTransaction(Workflow, ModelSQL, ModelView):
         if default is None:
             default = {}
         default = default.copy()
-        default['uuid'] = cls.default_uuid()
+        default['uuid'] = None
         return super(AccountPaymentGatewayTransaction, cls).copy(
             transactions, default=default)
 
